@@ -1,4 +1,4 @@
-import { text, pgTable, uuid, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
 
 export const users = pgTable("users", {
   id: uuid("id").primaryKey().defaultRandom(),
@@ -9,4 +9,4 @@ export const users = pgTable("users", {
   updatedAt: timestamp("updated_at").defaultNow(),
 });
 
-export type User = typeof users.$inferInsert;
+export type User = typeof users.$inferSelect;

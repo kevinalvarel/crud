@@ -13,25 +13,16 @@ export async function createUser(
   user: Omit<User, "id" | "createdAt" | "updatedAt">
 ) {
   try {
-    const newUser = await db.insert(users).values(user).returning();
-    return newUser;
+    await db.insert(users).values(user).returning();
   } catch (error) {
     console.error("Error creating user:", error);
     throw new Error("Failed to create user");
   }
 }
 
-export async function updateUser(
-  id: string,
-  user: Omit<User, "id" | "createdAt" | "updatedAt">
-) {
+export async function updateUser(user: Omit<User, "createdAt" | "updatedAt">) {
   try {
-    const updatedUser = await db
-      .update(users)
-      .set(user)
-      .where(eq(users.id, id))
-      .returning();
-    return updatedUser;
+    await db.update(users).set(user).where(eq(users.id, user.id)).returning();
   } catch (error) {
     console.error("Error updating user:", error);
     throw new Error("Failed to update user");
@@ -39,6 +30,10 @@ export async function updateUser(
 }
 
 export async function deleteUser(id: string) {
-  const deletedUser = await db.delete(users).where(eq(users.id, id));
-  return deletedUser;
+  try {
+    await db.delete(users).where(eq(users.id, id));
+  } catch (error) {
+    console.log("Error when deleting user:", error);
+    throw new Error("Failed to delete user");
+  }
 }
