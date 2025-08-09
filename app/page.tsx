@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import UserForm from "@/components/ui/UserForm";
 
-export const revalidate = 5;
+export const dynamic = "auto";
 
 export default async function Home() {
   return (
