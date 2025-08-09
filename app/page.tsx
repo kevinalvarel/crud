@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/dialog";
 import UserForm from "@/components/ui/UserForm";
 
+export const revalidate = 5;
+
 export default async function Home() {
   return (
     <div className="flex flex-col gap-4 mx-auto max-w-7xl p-4 md:p-24">
