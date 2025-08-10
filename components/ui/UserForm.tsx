@@ -61,14 +61,18 @@ export default function UserForm({ user }: UserFormProps) {
       form.reset();
       await createUser(userData);
       setIsLoading(false);
-      toast.success(`Pengguna berhasil ${user ? "diubah" : "ditambahkan"}!`);
+      toast.success(
+        `Nama pengguna berhasil ${user ? "diubah" : "ditambahkan"}!`
+      );
       router.refresh();
     } catch (error) {
       console.log(
         "Nama pengguna sudah ditambahkan, silakan pakai nama lain!",
         error
       );
-      toast.error(`Nama pengguna sudah ${user ? "diubah" : "ditambahkan"}.`);
+      toast.error(
+        `Kesalahan, nama pengguna sudah ${user ? "diubah" : "ditambahkan"}.`
+      );
     } finally {
       setIsLoading(false);
     }
