@@ -59,7 +59,6 @@ export default function UserForm({ user }: UserFormProps) {
       }
 
       form.reset();
-      await createUser(userData);
       setIsLoading(false);
       toast.success(
         `Nama pengguna berhasil ${user ? "diubah" : "ditambahkan"}!`
