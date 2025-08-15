@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import UserTable from "@/components/ui/UserTable";
+import UserTable from "@/components/UserTable";
 import { UserPlus2Icon } from "lucide-react";
 import {
   Dialog,
@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import UserForm from "@/components/ui/UserForm";
+import UserForm from "@/components/UserForm";
 
 export const dynamic = "force-dynamic";
 

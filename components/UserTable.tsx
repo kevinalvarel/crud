@@ -19,9 +19,9 @@ import {
 } from "@/components/ui/dialog";
 
 import React from "react";
-import { Button } from "./button";
+import { Button } from "./ui/button";
 import { PencilIcon } from "lucide-react";
-import DeleteUserButton from "../DeleteUserButton";
+import DeleteUserButton from "./DeleteUserButton";
 import UserForm from "./UserForm";
 
 const UserTable = async () => {
